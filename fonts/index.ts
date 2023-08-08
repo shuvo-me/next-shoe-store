@@ -2,10 +2,10 @@ import { Oswald, Urbanist } from "next/font/google";
 
 export const oswald = Oswald({
   subsets: ["latin"],
-  display: "swap",
+  variable: "--font-oswald",
 });
 
 export const urbanist = Urbanist({
+  variable: "--font-urbanist",
   subsets: ["latin"],
-  display: "swap",
 });
