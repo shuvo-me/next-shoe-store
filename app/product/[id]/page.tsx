@@ -1,4 +1,8 @@
-import { AppContainer, ProductDetailsCarousel } from "@/components";
+import {
+  AppContainer,
+  ProductDetailsCarousel,
+  RelatedProducts,
+} from "@/components";
 import React from "react";
 import { IoMdHeartEmpty } from "react-icons/io";
 
@@ -69,6 +73,7 @@ const ProductDetails = ({ params }: { params: { id: string } }) => {
             </div>
           </div>
         </div>
+        <RelatedProducts />
       </AppContainer>
     </div>
   );

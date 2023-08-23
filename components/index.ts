@@ -3,6 +3,7 @@ import AppContainer from "./AppContainer";
 import HeroBanner from "./HeroBanner";
 import ProductCard from "./ProductCard";
 import ProductDetailsCarousel from "./ProductDetailsCarousel";
+import RelatedProducts from "./RelatedProducts";
 
 export {
   Header,
@@ -10,4 +11,5 @@ export {
   HeroBanner,
   ProductCard,
   ProductDetailsCarousel,
+  RelatedProducts,
 };
