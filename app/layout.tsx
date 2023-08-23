@@ -2,6 +2,7 @@ import { oswald, urbanist } from "@/fonts";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Header } from "@/components";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Next Shoe Store",
@@ -15,9 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={urbanist.className}>
+      <body className={`${urbanist.className}`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

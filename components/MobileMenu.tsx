@@ -1,4 +1,4 @@
-import { MenuItemTypes, MenuPropTypes, SubmenuItemTypes } from "@/types";
+import { MenuItemTypes, MobileMenuPropTypes, SubmenuItemTypes } from "@/types";
 import React, { FC, Fragment } from "react";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
@@ -17,27 +17,41 @@ const subMenuItems: Array<SubmenuItemTypes> = [
   { id: 4, name: "Football shoes", doc_count: 107 },
 ];
 
-const Menu: FC<MenuPropTypes> = ({ showCatMenu, setShowCatMenu }) => {
+const MobileMenu: FC<MobileMenuPropTypes> = ({
+  showCatMenu,
+  setShowCatMenu,
+  setShowMobileMenu,
+}) => {
   return (
-    <ul className="hidden md:flex gap-8 font-medium text-black items-center">
+    <ul className="flex flex-col md:hidden font-bold absolute top-[50px] left-0 w-full h-[calc(100vh-50px)] bg-white border-t text-black">
       {menuItems?.map((menu) => (
         <Fragment key={menu.id}>
           {!!menu.subMenu ? (
             <li
-              className=" cursor-pointer flex items-center gap-2 relative"
-              onMouseEnter={() => setShowCatMenu(true)}
-              onMouseLeave={() => setShowCatMenu(false)}
+              className=" cursor-pointer flex flex-col border-b py-4 px-5 relative"
+              onClick={() => setShowCatMenu(!showCatMenu)}
             >
-              {menu.name}
-              <BsChevronDown size={14} />
+              <div className="flex items-center justify-between">
+                {menu.name}
+                <BsChevronDown
+                  size={14}
+                  className={`transition-all ${
+                    showCatMenu ? "rotate-180" : "rotate-0"
+                  }`}
+                />
+              </div>
+
               {showCatMenu && (
-                <ul className="bg-white absolute top-6 left-0 min-w-[250px] p-1 text-black shadow-lg">
+                <ul className="bg-black/[0.05] -mx-5 mt-4 -mb-4">
                   {subMenuItems.map((subMenu) => {
                     return (
                       <Link href={"/"} key={subMenu.id}>
                         <li
-                          className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.03] rounded-md"
-                          onClick={() => setShowCatMenu(false)}
+                          className="py-4 px-8 border-t flex justify-between"
+                          onClick={() => {
+                            setShowCatMenu(false);
+                            setShowMobileMenu(false);
+                          }}
                         >
                           {subMenu.name}
                           <span className="opacity-50 text-sm">78</span>
@@ -49,7 +63,10 @@ const Menu: FC<MenuPropTypes> = ({ showCatMenu, setShowCatMenu }) => {
               )}
             </li>
           ) : (
-            <li className="cursor-pointer">
+            <li
+              className="cursor-pointer py-4 px-5 border-b"
+              onClick={() => setShowMobileMenu(false)}
+            >
               <Link href={menu.url}>{menu.name}</Link>
             </li>
           )}
@@ -59,4 +76,4 @@ const Menu: FC<MenuPropTypes> = ({ showCatMenu, setShowCatMenu }) => {
   );
 };
 
-export default Menu;
+export default MobileMenu;
