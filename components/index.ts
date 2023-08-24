@@ -4,6 +4,7 @@ import HeroBanner from "./HeroBanner";
 import ProductCard from "./ProductCard";
 import ProductDetailsCarousel from "./ProductDetailsCarousel";
 import RelatedProducts from "./RelatedProducts";
+import CartItems from "./CartItems";
 
 export {
   Header,
@@ -12,4 +13,5 @@ export {
   ProductCard,
   ProductDetailsCarousel,
   RelatedProducts,
+  CartItems,
 };
