@@ -1,10 +1,8 @@
-"use client";
 import { AppContainer, HeroBanner, ProductCard } from "@/components";
 import { getProducts } from "@/utils";
 
 export default async function Home() {
   const products = await getProducts();
-  console.log({ products });
 
   return (
     <main className="">
@@ -21,7 +19,7 @@ export default async function Home() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-14 px-5 md:px-0">
-          {products?.data?.map((product, index) => (
+          {products?.data?.map((product) => (
             <ProductCard product={product} key={product.id} />
           ))}
         </div>
