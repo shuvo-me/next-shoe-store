@@ -1,7 +1,11 @@
 import { AppContainer, HeroBanner, ProductCard } from "@/components";
+import { ProductTypes } from "@/types";
+import { getProducts } from "@/utils";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  const products = await getProducts();
+
   return (
     <main className="">
       <HeroBanner />
@@ -17,14 +21,9 @@ export default function Home() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-14 px-5 md:px-0">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {products?.map((product, index) => (
+            <ProductCard product={product} key={product.attributes.slug} />
+          ))}
         </div>
       </AppContainer>
     </main>

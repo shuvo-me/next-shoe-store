@@ -1,8 +1,9 @@
+import { ProductTypes } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { FC } from "react";
 
-const ProductCard = () => {
+const ProductCard: FC<{ product: ProductTypes }> = ({ product }) => {
   return (
     <Link
       href="/product/1"
