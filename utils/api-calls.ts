@@ -1,15 +1,9 @@
-const API_BASE_URL = "http://localhost:1337/api";
-export const getProducts = async () => {
-  let loading, err, products;
-  try {
-    loading = true;
-    const res = await fetch(`${API_BASE_URL}/products?populate=*`);
-    products = res.json();
-    loading = false;
-  } catch (errors) {
-    loading = false;
-    err = errors;
-  }
+import { ProdcutApiResponseType } from "@/types";
 
-  return { products, err, loading };
+const API_BASE_URL = "http://localhost:1337/api";
+export const getProducts = async (): Promise<ProdcutApiResponseType> => {
+  const res = await fetch(`${API_BASE_URL}/products?populate=*`);
+  const products = await res.json();
+  console.log({ products });
+  return products;
 };

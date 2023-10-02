@@ -137,3 +137,15 @@ export interface ProductTypes {
     categories: any;
   };
 }
+
+export interface ProdcutApiResponseType {
+  data: Array<ProductTypes>;
+  meta: {
+    pagination: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    };
+  };
+}
