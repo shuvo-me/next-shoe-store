@@ -46,7 +46,7 @@ const Cart = () => {
           </div>
         </div>
 
-        <div className="flex-[2] flex flex-col items-center pb-[50px] md:-mt-14">
+        {/* <div className="flex-[2] flex flex-col items-center pb-[50px] md:-mt-14">
           <div className="relative w-[300px] md:w-[400px] h-[300px]">
             <Image
               src="/assets/empty-cart.jpg"
@@ -68,7 +68,7 @@ const Cart = () => {
           >
             Continue Shopping
           </Link>
-        </div>
+        </div> */}
       </AppContainer>
     </div>
   );

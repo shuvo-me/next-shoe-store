@@ -2,7 +2,7 @@ import { AppContainer } from "@/components";
 import Link from "next/link";
 import React from "react";
 
-const page = () => {
+const Success = () => {
   return (
     <div className="min-h-[650px] flex items-center">
       <AppContainer>
@@ -25,4 +25,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Success;
