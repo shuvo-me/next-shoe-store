@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
 
-const ProductCard: FC<{ product: ProductTypes }> = ({ product }) => {
+const ProductCard: FC<{ product?: ProductTypes }> = ({ product }) => {
   return (
     <Link
       href="/product/1"

@@ -33,7 +33,10 @@ const ProductDetails = ({ params }: { params: { id: string } }) => {
               </div>
               <div className="grid grid-cols-3 gap-2">
                 {[...new Array(7)].map((_, i) => (
-                  <div className="border rounded-md text-center py-3 font-medium hover:border-black cursor-pointer">
+                  <div
+                    className="border rounded-md text-center py-3 font-medium hover:border-black cursor-pointer"
+                    key={_}
+                  >
                     UK 6
                   </div>
                 ))}
